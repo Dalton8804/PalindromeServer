@@ -10,9 +10,9 @@ def isPalindrome(s):
     return 'No'
 
 
-serverPort = 12
+serverPort = 8888
 serverSocket = socket(AF_INET, SOCK_STREAM)
-serverSocket.bind(('', serverPort))
+serverSocket.bind(('127.0.0.1', serverPort))
 serverSocket.listen(1)
 print('Ready to receive...')
 
@@ -54,6 +54,7 @@ while True:
             outputs.remove(s)
         else:
             s.send(next_msg)
+
     for s in exceptional:
         inputs.remove(s)
         if s in outputs:
